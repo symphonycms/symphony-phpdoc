@@ -8,7 +8,7 @@ require('globalWriter.php');
 require('deprecatedWriter.php');
 require('delegateWriter.php');
 
-class Xml extends Doclet {
+class Symphony_Xml extends Doclet {
 
 	function formatLink($url, $text)
     {
@@ -24,7 +24,7 @@ class Xml extends Doclet {
 	var $_bottom = '';
 	var $_includeSource = FALSE;
 
-	function xml(&$rootDoc) {
+	function symphony_xml(&$rootDoc) {
 	
 		$this->_rootDoc =& $rootDoc;
 		$phpdoctor =& $rootDoc->phpdoctor();
