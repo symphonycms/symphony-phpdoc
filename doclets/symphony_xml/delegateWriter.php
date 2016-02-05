@@ -7,8 +7,8 @@ class DelegateWriter extends HTMLWriter {
 		if (is_dir($start_dir)) {
 			$fh = opendir($start_dir);
 			while (($file = readdir($fh)) !== false) {
-				if (strcmp($file, '.')==0 || strcmp($file, '..')==0) continue;
-				$filepath = $start_dir . '/' . $file;
+				if (strpos($file, '.') === 0) continue;
+				$filepath = $start_dir . DIRECTORY_SEPARATOR . $file;
 				if (is_dir($filepath)) {
 					$files = array_merge($files, $this->getFiles($filepath));
 				} else {
@@ -41,7 +41,6 @@ class DelegateWriter extends HTMLWriter {
 		$delegates = array();
 		
 		foreach($files as $file) {
-			
 			$source = file_get_contents($file);
 			
 			$in_parsed_string = FALSE;
